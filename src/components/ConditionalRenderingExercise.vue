@@ -10,7 +10,7 @@
             screen.
           </p>
           <!-- add code to element below -->
-          <div class="player-card text-center">
+          <div class="player-card text-center" v-if="true == true">
             <div>
               <img :src="state.player.photo" />
             </div>
@@ -38,7 +38,7 @@
             toggle the value to true to get it to show up again.
           </p>
           <!-- add code to element below -->
-          <div class="player-card text-center">
+          <div class="player-card text-center" v-if="state.showPlayer">
             <div>
               <img :src="state.player.photo" />
             </div>
@@ -67,23 +67,23 @@
             to add another condition.
           </p>
           <!-- v-if comparing grade and 90 -->
-          <div>
+          <div v-if="90 >= state.grade">
             <p>The grade is 'A'.</p>
           </div>
           <!-- v-else-if comparing grade and 80 -->
-          <div>
+          <div v-if="80 >= state.grade">
             <p>The grade is 'B'.</p>
           </div>
           <!-- v-else-if comparing grade and 70 -->
-          <div>
+          <div v-if="70 >= state.grade">
             <p>The grade is 'C'.</p>
           </div>
           <!-- v-else-if comparing grade and 60 -->
-          <div>
+          <di v-if="60 >= state.grade">
             <p>The grade is 'D'.</p>
-          </div>
+          </di>
           <!-- v-else to display if all the others fail -->
-          <div>
+          <div v-if="50 === state.grade">
             <p>The grade is 'F'.</p>
           </div>
         </div>
@@ -129,8 +129,10 @@ export default {
   setup() {
     // NOTE typically state will be abstracted to a global AppState
     const state = reactive({
+      showPlayer: true,
       //add a property to toggle the player-card here.
       //add a property to set the number value here.
+      grade: 50,
       player: {
         photo: "https://robohash.org/Mick",
         name: "Mick",
